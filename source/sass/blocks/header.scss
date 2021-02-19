@@ -1,0 +1,166 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: $color-default-white;
+  
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+  }
+
+  &__logo {
+    width: 192px;
+  }
+
+  &__toggle {
+    display: none;
+  }
+
+  @include viewport--md {
+    height: 75px;
+
+    &__menu {
+      display: none;
+    }
+
+    &__toggle {
+      display: block;
+    }
+  }
+}
+
+.menu {
+  &__list {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    padding: 0 12px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1;
+
+    &--special {
+      position: relative;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 2px;
+        width: 10px;
+        height: 10px;
+        background-image: url(../img/svg/arrow.svg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  @include viewport--md {
+
+    &_show {
+      position: absolute;
+      top: 75px;
+      left: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(100vh - 75px);
+      width: 100%;
+      background-color: $color-default-white;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+    &__link {
+      font-size: 28px;
+
+      &--special {
+        
+        &::before {
+          top: 7px;
+        }
+      }
+    }
+  }
+}
+
+.toggle {
+  position: relative;
+  width: 30px;
+  height: 25px;
+
+  &__menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 25px;
+    padding: 10px;
+    background: none;
+    border: none;
+    transform: translate(-50%, -50%);
+
+    span {
+      position: absolute;
+      display: block;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      &::before, &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+      }
+
+      &::before {
+        top: -8px;
+      }
+      &::after {
+        top: 8px;
+      }
+    }
+
+    span, span::before, span::after{
+      width: 25px;
+      height: 2px;
+      background-color: $color-neon-blue;
+      transition: transform $default-transition-settings
+    }
+
+    &_open {
+      span {
+        background-color: transparent;
+
+        &::after {
+          transform: translateY(-8px) rotate(45deg);
+        }
+
+        &::before {
+          transform: translateY(8px) rotate(-45deg);
+        }
+      }
+    }
+  }
+}

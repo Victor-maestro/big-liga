@@ -1,0 +1,183 @@
+.promo {
+  
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    background-image: url(../img/svg/letter.svg);
+    background-position: center bottom;
+    background-size: 660px;
+    background-repeat: no-repeat;
+  }
+
+  &__block {
+    height: 100vh;
+    padding-top: 120px;
+
+    &--main {
+      max-width: 560px;
+    }
+
+    &--desc {
+      display: flex;
+      justify-content: center;
+      padding-left: 40px;
+    }
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 96px;
+    line-height: 1;
+    color: $color-neon-blue;
+  }
+
+  &__inner {
+    max-width: 390px;
+  }
+
+  &__text {
+    font-size: 30px;
+    line-height: 1.33;
+  }
+
+  &__warrior {
+    margin-bottom: 30px;
+  }
+
+  @include viewport--md {
+    &__block {
+      min-height: 100vh;
+      padding-top: 240px;
+  
+      &--main {
+        max-width: 100%;
+      }
+  
+      &--desc {
+        position: absolute;
+        width: 100%;
+        background-color: $color-neon-blue;
+        transform: translateX(-100%);
+        transition: transform $default-transition-settings;
+      }
+
+      &--show {
+        transform: translateX(0);
+      }
+    }
+
+    &__text {
+      color: $color-default-white;
+    }
+  }
+
+  @include viewport--sm {
+    &__block {
+      padding-top: 160px;
+    }
+
+    &__title {
+      font-size: 55px;
+    }
+  
+    &__text {
+      font-size: 24px;
+    }
+  }
+}
+
+.warrior {
+  position: relative;
+  width: 275px;
+  min-height: 290px;
+  
+  &__main {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 85px;
+
+    svg {
+      width: 70px;
+      height: 85px;
+
+      .element {
+        fill: $color-neon-blue;
+      }
+    }
+  }
+
+  &__line {
+    position: absolute;
+
+    &--1 {
+      left: 0;
+      bottom: 45px;
+      width: 80px;
+      height: 135px;
+
+      svg {
+        width: 80px;
+        height: 135px;
+        fill: #9627A3;
+      }
+    }
+
+    &--2 {
+      left: 85px;
+      bottom: 120px;
+      width: 45px;
+      height: 90px;
+
+      svg {
+        width: 45px;
+        height: 90px;
+        fill: #FF1553;
+      }
+    }
+
+    &--3 {
+      right: 5px;
+      bottom: 110px;
+      width: 110px;
+      height: 190px;
+
+      svg {
+        width: 110px;
+        height: 190px;
+        fill: #2C39F2;
+      }
+    }
+
+    &--4 {
+      right: 20px;
+      bottom: 30px;
+      width: 60px;
+      height: 80px;
+
+      svg {
+        width: 60px;
+        height: 80px;
+        fill: #9627A3;
+      }
+    }
+  }
+
+  @include viewport--md {
+    &__main { 
+      svg { 
+        .element {
+          fill: $color-default-white;
+        }
+      }
+    }
+
+    &__line {
+      svg { 
+        fill: $color-default-white;
+      }
+    }
+  }
+}
