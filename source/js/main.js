@@ -31,6 +31,8 @@ function resize_info() {
   if (window.innerWidth < 1024) {
     toggleMenu.classList.remove('toggle__menu_open')
     menuList.classList.remove('menu_show')
+
+    
   }
 }
 
@@ -46,16 +48,24 @@ toggleMenu.addEventListener('click', event => {
 
 
 if (window.innerWidth < 1024) {
+
+  let counter = 0;
+
   document.addEventListener('click', event => {
+
+    counter++
 
     if (headerBlock.contains(event.target) || loader.contains(event.target)) return; 
     rigthBlock.classList.toggle('promo__block--show');
 
+    if (counter < 3) {
+      let tl = gsap.timeline();
+      tl.from(".promo__warrior", {duration: 1, opacity: 0, y: 100, ease: "power1"});
+      tl.from(".promo__text", {duration: 1, opacity: 0, ease: "power1"});
+    } 
+
   })
-}
 
-
-if (window.innerWidth < 1024) {
   loader.addEventListener('click', (event) => {
 
     wrapper.classList.remove('wrapper--hide')

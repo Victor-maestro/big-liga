@@ -683,7 +683,9 @@ button,
   padding: 0 12px;
   font-weight: 500;
   font-size: 14px;
-  line-height: 1; }
+  line-height: 1;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease; }
   .menu__link--special {
     position: relative; }
     .menu__link--special::before {
@@ -697,6 +699,8 @@ button,
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat; }
+  .menu__link:hover {
+    color: #2c39f2; }
 
 @media (max-width: 1023px) {
   .menu_show {
@@ -821,6 +825,8 @@ button,
   margin-bottom: 30px; }
 
 @media (max-width: 1023px) {
+  .promo__wrapper {
+    background-image: none; }
   .promo__block {
     min-height: 100vh;
     padding-top: 240px; }

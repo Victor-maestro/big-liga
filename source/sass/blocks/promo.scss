@@ -45,6 +45,10 @@
   }
 
   @include viewport--md {
+    &__wrapper {
+      background-image: none;
+    }
+    
     &__block {
       min-height: 100vh;
       padding-top: 240px;
